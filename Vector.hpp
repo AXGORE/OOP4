@@ -3,78 +3,77 @@
 #include <iostream>
 
 namespace v {
-	template <class TYP>
-	class Iterator {
-	private:
-		TYP* this_el;
-	public:
-		Iterator() : this_el(nullptr) {}
-		Iterator(TYP* val) : this_el(val) {}
-		~Iterator() {}
-		bool operator !=(const Iterator<TYP>& other) const {
-			if (this_el == nullptr || other.this_el == nullptr) {
-				return false;
-			}
-			return (this->this_el != other.this_el);
-		}
-		bool operator ==(const Iterator<TYP>& other) const {
-			if (this_el == nullptr || other.this_el == nullptr) {
-				return false;
-			}
-			return (this->this_el == other.this_el);
-		}
-		bool operator <(const Iterator<TYP>& i) {
-			return this->this_el < i.this_el;
-		}
-		bool operator >(const Iterator<TYP>& i) {
-			return this->this_el > i.this_el;
-		}
-		bool operator <=(const Iterator<TYP>& i) {
-			return this->this_el <= i.this_el;
-		}
-		bool operator >=(const Iterator<TYP>& i) {
-			return this->this_el >= i.this_el;
-		}
-		TYP& operator *() {
-			return *this->this_el;
-		}
-		TYP* operator ->() {
-			return this->this_el;
-		}
-		Iterator<TYP>& operator ++() {
-			++this->this_el;
-			return *this;
-		}
-		Iterator<TYP>& operator --() {
-			--this->this_el;
-			return *this;
-		}
-		Iterator<TYP> operator --(int i) {
-			Iterator <TYP> res;
-			res = *this;	
-			--this->this_el;
-			return &*res;
-		}
-		Iterator<TYP> operator ++(int i) {
-			Iterator <TYP> res;
-			res = *this;
-			++this->this_el;
-			return &*res;
-		}
-		Iterator<TYP>(const Iterator<TYP>& other) {
-			this->this_el = other.this_el;
-		}
-		Iterator<TYP>& operator = (const Iterator<TYP> other) {
-			this->this_el = other.this_el;
-			return *this;
-		}
-
-	};
 	template <class T>
 	class vector {
 	    T* mas;
 		int len;
 	public:
+        class Iterator {
+        private:
+            T* this_el;
+        public:
+            Iterator() : this_el(nullptr) {}
+            Iterator(T* val) : this_el(val) {}
+            ~Iterator() {}
+            bool operator !=(const Iterator& other) const {
+                if (this_el == nullptr || other.this_el == nullptr) {
+                    return false;
+                }
+                return (this->this_el != other.this_el);
+            }
+            bool operator ==(const Iterator& other) const {
+                if (this_el == nullptr || other.this_el == nullptr) {
+                    return false;
+                }
+                return (this->this_el == other.this_el);
+            }
+            bool operator <(const Iterator& i) {
+                return this->this_el < i.this_el;
+            }
+            bool operator >(const Iterator& i) {
+                return this->this_el > i.this_el;
+            }
+            bool operator <=(const Iterator& i) {
+                return this->this_el <= i.this_el;
+            }
+            bool operator >=(const Iterator& i) {
+                return this->this_el >= i.this_el;
+            }
+            T& operator *() {
+                return *this->this_el;
+            }
+            T* operator ->() {
+                return this->this_el;
+            }
+            Iterator operator ++() {
+                ++this->this_el;
+                return *this;
+            }
+            Iterator & operator --() {
+                --this->this_el;
+                return *this;
+            }
+            Iterator operator --(int i) {
+                Iterator  res;
+                res = *this;
+                --this->this_el;
+                return res;
+            }
+            Iterator operator ++(int i) {
+                Iterator res;
+                res = *this;
+                ++this->this_el;
+                return res;
+            }
+            Iterator(const Iterator  &other) {
+                this->this_el = other.this_el;
+            }
+            Iterator operator = (const Iterator other) {
+                this->this_el = other.this_el;
+                return *this;
+            }
+
+        };
 		/// <summary>
 		/// Конструктор по умолчанию
 		/// </summary>
@@ -263,7 +262,6 @@ namespace v {
 			}
 			return *this;
 		}
-		typedef Iterator<T> Iterator;
 		/// <summary>
 		/// Итератор
 		/// </summary>

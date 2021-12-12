@@ -2,9 +2,9 @@
 #define CREATURE_HPP
 #include <iostream>
 #include "Field.hpp"
+#include "Summoner.h"
 
 namespace summon {
-	typedef class Summoner;
 	struct nstats {
 		int max_HP;
 		float HP;

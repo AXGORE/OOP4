@@ -2,7 +2,7 @@
 #define DIALOG_H
 
 #include <iostream>
-#include "Summoner.h"
+#include "../Summoner.h"
 #pragma comment(lib,"../Laba4/Debug/Laba4")
 
 using namespace summon;

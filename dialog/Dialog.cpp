@@ -1,5 +1,5 @@
 #include "Dialog.h"
-#include"Summoner.h"
+#include"../Summoner.h"
 #pragma comment(lib,"../Laba4/Debug/Laba4")
 #include <iostream>
 #include <stdexcept>

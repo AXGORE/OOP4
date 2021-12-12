@@ -2,10 +2,8 @@
 #define FIELD_HPP
 #include <iostream>
 #include "Vector.hpp"
-
+#include "Creature.hpp"
 namespace summon {
-	typedef class Creature;
-	
 	struct coords {
 		int x;
 		int y;

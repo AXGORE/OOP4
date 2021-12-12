@@ -5,12 +5,10 @@
 #include <map>
 #include"Creature.hpp"
 #include "Vector.hpp"
-#include "Field.hpp"
 
 
 
 namespace summon {
-	typedef class Summoner;
 	/*template <class T>
 	class IWork_data {
 	public:
